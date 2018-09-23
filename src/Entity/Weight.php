@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WeightRepository")
@@ -18,16 +19,19 @@ class Weight
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"pet_details"})
      */
     private $value;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"pet_details"})
      */
     private $measuring_unit;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"pet_details"})
      */
     private $date;
 

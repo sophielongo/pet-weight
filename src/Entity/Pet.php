@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PetRepository")
@@ -15,31 +16,37 @@ class Pet
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"pet_details"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"pet_details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"pet_details"})
      */
     private $birthdate;
 
     /**
      * @ORM\Column(type="string", length=7, nullable=true)
+     * @Groups({"pet_details"})
      */
     private $gender;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="pets")
+     * @Groups({"pet_details"})
      */
     private $users;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Weight", mappedBy="pet", orphanRemoval=true)
+     * @Groups({"pet_details"})
      */
     private $weights;
 
