@@ -1,7 +1,14 @@
 easy_admin:
+    site_name: 'Pet Weight'
+    design:
+        brand_color: '#008699'
+        menu:
+            - { entity: 'Pet', label: 'Pets', icon: 'paw' }
+            - { entity: 'User', label: 'Users', icon: 'user' }
+            - { entity: 'Weight', label: 'Weights', icon: 'balance-scale' }
     entities:
         Pet:
-            label: Pets
+            
             class: App\Entity\Pet
         User:
             label: Users
