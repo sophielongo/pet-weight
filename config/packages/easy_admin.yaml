@@ -1,8 +1,11 @@
 easy_admin:
     entities:
         Pet:
+            label: Pets
             class: App\Entity\Pet
         User:
+            label: Users
             class: App\Entity\User
         Weight:
+            label: Weights
             class: App\Entity\Weight
