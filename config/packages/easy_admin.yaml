@@ -1,6 +1,8 @@
 easy_admin:
-   entities:
-       # List the entity class name you want to manage
-       - App\Entity\Pet
-       - App\Entity\User
-       - App\Entity\Weight
+    entities:
+        Pet:
+            class: App\Entity\Pet
+        User:
+            class: App\Entity\User
+        Weight:
+            class: App\Entity\Weight
