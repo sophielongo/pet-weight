@@ -21,7 +21,7 @@ class Pet
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
-     * 
+     * @JMS\Type("uuid")
      * @Groups({"pet_details"})
      */
     private $id;
