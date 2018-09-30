@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation as JMS;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PetRepository")
@@ -13,9 +15,13 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Pet
 {
     /**
+     * @var \Ramsey\Uuid\UuidInterface
+     * 
      * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
+     * 
      * @Groups({"pet_details"})
      */
     private $id;
@@ -56,7 +62,7 @@ class Pet
         $this->weights = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
