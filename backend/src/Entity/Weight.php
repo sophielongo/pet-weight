@@ -93,4 +93,9 @@ class Weight
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getValue() . ' ' . $this->getMeasuringUnit() . ' (' . $this->getDate()->format('d-m-Y') . ')';
+    }
 }
